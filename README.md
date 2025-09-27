@@ -21,13 +21,30 @@ blog-api-project/
 
 ---
 
-## 🔗 Architecture Diagram (Mermaid)
+## 🔗 Architecture Diagram
 
+### Mermaid (GitHub Render)
 ```mermaid
 flowchart TD
-    A[Browser] --> B[Frontend\nNext.js + Tailwind\nhttp://localhost:3000]
-    B --> C[Backend API\n.NET 8 + EF Core\nhttp://localhost:5178]
-    C --> D[SQLite Database\ntasks.db]
+    A[Browser] --> B[Frontend: Next.js + Tailwind<br/>http://localhost:3000]
+    B --> C[Backend API: .NET 8 + EF Core<br/>http://localhost:5178]
+    C --> D[SQLite Database: tasks.db]
+ASCII (Fallback)
+[ Browser ]
+     │
+     ▼
+[ Frontend ]
+ Next.js + Tailwind
+ (http://localhost:3000)
+     │ calls REST API
+     ▼
+[ Backend API ]
+ .NET 8 + EF Core
+ (http://localhost:5178)
+     │ queries
+     ▼
+[ SQLite Database ]
+ tasks.db
 🚀 How to Run
 With Docker Compose (recommended)
 Make sure you have Docker Desktop installed.
@@ -53,4 +70,3 @@ GET /api/tasks – Get all tasks
 POST /api/tasks – Add new task
 PUT /api/tasks/{id} – Update task
 DELETE /api/tasks/{id} – Delete task
-
